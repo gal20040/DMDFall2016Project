@@ -36,6 +36,9 @@
 # IntelliJ build files
 /out/
 .idea
+/target/
+target/
+target
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

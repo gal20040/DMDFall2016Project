@@ -1,0 +1,174 @@
+/*
+CREATE USER bookmanager@localhost identified BY '123123';
+GRANT USAGE ON *.* TO bookmanager@localhost identified BY '123123';
+CREATE DATABASE IF NOT EXISTS bookmanager;
+GRANT ALL PRIVILEGES ON bookmanager.* TO bookmanager@localhost;
+use bookmanager;
+/*CREATE TABLE books
+(
+    id		INT PRIMARY KEY AUTO_INCREMENT,
+    name	VARCHAR(50),
+    genre	VARCHAR(50),
+    created	TIMESTAMP DEFAULT NOT()
+);*/
+
+CREATE TABLE `books` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `genre` varchar(50) DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+*/
+
+use hotelinno;
+
+/*Room(PK:RoomID, TypeID)
+RoomType(PK:RoomTypeID, RoomTypeName, Price)
+Hotel(PK:HotelID, HotelName, Address, FK:CityID)
+-- HotelRoom(PK:HotelRoomID, FK:HotelID, FK:RoomID) -- drop table IF EXISTS HotelRoom;
+-- RoomBooking(PK:RBID, FK:UserID, CheckIn, CheckOut, FK:HotelRoomID)
+RoomBooking(PK:RBID, CheckIn, CheckOut, FK:HotelID, FK:RoomID)
+User(PK:UserID, FirstName, LastName, Permissions) -- 1-client, 2-admin
+RoomOrder(PK:OrderID, FK:RBID, FK:UserID)
+-- Address(PK:AddressID, AddressName, FK:CityID) -- drop table IF EXISTS Address;
+City(PK:CityID, CityName, FK:CountryID)
+Country(PK:CountryID, CountryName)*/
+
+drop table IF EXISTS RoomOrder;
+drop table IF EXISTS RoomBooking;
+drop table IF EXISTS User;
+drop table IF EXISTS Hotel;
+drop table IF EXISTS Room;
+drop table IF EXISTS RoomType;
+drop table IF EXISTS City;
+drop table IF EXISTS Country;
+
+create table Country (
+  CountryID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  CountryName varchar(100) NOT NULL
+);
+
+create table City (
+  CityID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  CityName varchar(200) NOT NULL,
+  CountryID integer UNSIGNED NOT NULL,
+  FOREIGN KEY (CountryID) REFERENCES Country(CountryID)
+);
+
+INSERT INTO Country (CountryName) VALUES
+('Russia'),
+('USA'),
+('Sweden'),
+('Slovakia'),
+('Italy'),
+('Austria');
+
+INSERT INTO City (CityName, CountryID) VALUES
+('Kazan', (select CountryID from country where CountryName = 'Russia')),
+('Moscow', (select CountryID from country where CountryName = 'Russia')),
+('New-York', (select CountryID from country where CountryName = 'USA')),
+('Atlanta', (select CountryID from country where CountryName = 'USA')),
+('Stockholm', (select CountryID from country where CountryName = 'Sweden')),
+('Gothenburg', (select CountryID from country where CountryName = 'Sweden'));
+
+/*create table Address (
+  AddressID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  AddressName varchar(200) NOT NULL,
+  CityID integer UNSIGNED NOT NULL,
+  FOREIGN KEY (CityID) REFERENCES City(CityID)
+);
+
+INSERT INTO Address (AddressName, CityID) VALUES
+('Pushkina street, 101', (select CityID from city where CityName = 'Kazan')),
+('Pravo-Bulachnaya str., 202', (select CityID from city where CityName = 'Kazan')),
+('Pushkina str., 303', (select CityID from city where CityName = 'Moscow')),
+('Kremlin str., 404', (select CityID from city where CityName = 'Moscow')),
+('5-th avenue, 505', (select CityID from city where CityName = 'New-York')),
+('Wall street, 606', (select CityID from city where CityName = 'New-York')),
+('Kazan street, 707', (select CityID from city where CityName = 'Atlanta')),
+('Russian street, 808', (select CityID from city where CityName = 'Stockholm')),
+('King street, 909', (select CityID from city where CityName = 'Gothenburg'));*/
+
+create table RoomType (
+  RoomTypeID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  RoomTypeName varchar(1000) NOT NULL,
+  Price integer UNSIGNED NOT NULL
+);
+
+INSERT INTO RoomType (RoomTypeName, Price) VALUES
+('Standard', 100),
+('Comfort', 200),
+('Lux', 300);
+
+create table Room (
+  RoomID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  TypeID integer UNSIGNED NOT NULL,
+  FOREIGN KEY (TypeID) REFERENCES RoomType(RoomTypeID)
+);
+
+INSERT INTO Room (TypeID) VALUES
+(1),
+(1),
+(2),
+(2),
+(3),
+(3);
+
+create table Hotel (
+  HotelID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  HotelName varchar(200) NOT NULL,
+  Address varchar(200) NOT NULL,
+  CityID integer UNSIGNED NOT NULL,
+  FOREIGN KEY (CityID) REFERENCES City(CityID)
+);
+
+INSERT INTO Hotel (HotelName, Address, CityID) VALUES
+('KazanInn', 'Pushkina street, 101', (select CityID from city where CityName = 'Kazan')),
+('Hayat', 'Pravo-Bulachnaya str., 202', (select CityID from city where CityName = 'Kazan')),
+('Radison Slavyanskaya', 'Pushkina str., 303', (select CityID from city where CityName = 'Moscow')),
+('Radison Kazanskaya', 'Kazan str., 303_2', (select CityID from city where CityName = 'Moscow')),
+('ParkInn', 'Kremlin str., 404', (select CityID from city where CityName = 'Moscow')),
+('Hilton', '5-th avenue, 505', (select CityID from city where CityName = 'New-York')),
+('Hotel-Motel', 'Wall street, 606', (select CityID from city where CityName = 'New-York')),
+('Hilton', 'Kazan street, 707', (select CityID from city where CityName = 'Atlanta')),
+('LocalHotel', 'Russian street, 808', (select CityID from city where CityName = 'Stockholm')),
+('Hilton', 'King street, 909', (select CityID from city where CityName = 'Gothenburg'));
+
+create table User (
+  UserID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  FirstName varchar(200) NOT NULL,
+  LastName varchar(200) NOT NULL,
+  Permissions integer UNSIGNED NOT NULL,
+  Password varchar(200) NOT NULL
+);
+
+INSERT INTO User (FirstName, LastName, Permissions, Password) VALUES
+('Mike', 'Tyson', 1, 'MikePass'),
+('Artem', 'Grodetskiy', 2, 'ArtemPass');
+
+create table RoomBooking (
+  RBID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+--  CheckIn date, -- TODO здесь надо указать тип данных "дата" - пока не знаю какой
+--  CheckOut date, -- TODO здесь надо указать тип данных "дата" - пока не знаю какой
+  HotelID integer UNSIGNED NOT NULL,
+  RoomID integer UNSIGNED NOT NULL,
+  FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID),
+  FOREIGN KEY (RoomID) REFERENCES Room(RoomID)
+);
+
+INSERT INTO RoomBooking (HotelID, RoomID) VALUES
+(1, 1),
+(1, 2);
+
+create table RoomOrder (
+  OrderID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  RBID integer UNSIGNED NOT NULL,
+  UserID integer UNSIGNED NOT NULL,
+  FOREIGN KEY (RBID) REFERENCES RoomBooking(RBID),
+  FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+INSERT INTO RoomOrder (RBID, UserID) VALUES
+(1, 1),
+(2, 1);
