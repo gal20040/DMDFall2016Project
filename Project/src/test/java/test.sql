@@ -1,1 +1,0 @@
-insert into Country(CountryID,CountryName) values (123,'Bulgaria');
