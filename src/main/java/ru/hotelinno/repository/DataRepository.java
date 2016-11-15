@@ -10,12 +10,12 @@ import java.util.List;
 
 @Repository //это показывает, что это класс уровня DataAccessLayer (название не точно!) - уровень доступа к данным //TODO
 @Transactional //включает возможность транзакций в этом классе - все методы будут выполняться по транзакции //TODO
-public class BookRepository {
+public class DataRepository {
 
     @Autowired //позволяет внедрять зависимости банов в этот класс //TODO
     private SessionFactory sessionFactory;
 
-    public void search(Book book){ //addBook
+    public void addRecord(Book book){ //addB ook
         this.sessionFactory
                 .getCurrentSession()
                 .save(book);
@@ -28,7 +28,8 @@ public class BookRepository {
                 .list();
     }
 
-    public void removeBook(Integer id){
+    //удаление не работает почему-то - вроде бы починилось
+    public void remove(Integer id){ //removeB ook
         Book contact = (Book) this.sessionFactory
                 .getCurrentSession()
                 .load(Book.class, id);

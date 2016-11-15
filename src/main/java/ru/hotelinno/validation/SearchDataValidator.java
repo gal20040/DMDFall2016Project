@@ -7,11 +7,11 @@ import org.springframework.validation.Validator;
 import ru.hotelinno.domain.Book;
 
 @Component
-public class BookValidator implements Validator {
+public class SearchDataValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return Book.class.isAssignableFrom(aClass);
+        return Book.class.isAssignableFrom(aClass); //TODO book
     }
 
     @Override
