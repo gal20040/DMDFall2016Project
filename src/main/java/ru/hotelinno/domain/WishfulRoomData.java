@@ -4,19 +4,19 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.ArrayList;
 
-@Table(name = "wishfulRoomData") //имя таблицы //TODO
+//@Table(name = "wishfulRoomData")
 public class WishfulRoomData {
 
-    @Column(name = "cityName")
+//    @Column(name = "cityName")
     private String cityName;
 
-    @Column(name = "roomType")
+//    @Column(name = "roomType")
     private String roomType;
 
-    @Column(name = "checkInDate")
+//    @Column(name = "checkInDate")
     private String checkInDate;
 
-    @Column(name = "checkOutDate")
+//    @Column(name = "checkOutDate")
     private String checkOutDate;
 
 //    public WishfulRoomData() {}
@@ -33,12 +33,17 @@ public class WishfulRoomData {
     public String getCheckInDate() {return checkInDate;}
     public String getCheckOutDate() {return checkOutDate;}
 
-    public ArrayList<String> getListOfAllParams() {
-        ArrayList<String> stringArrayList = new ArrayList<String>();
-        stringArrayList.add(cityName.getClass().getSimpleName());
-        stringArrayList.add(roomType.getClass().getSimpleName());
-        stringArrayList.add(checkInDate.getClass().getSimpleName());
-        stringArrayList.add(checkOutDate.getClass().getSimpleName());
-        return stringArrayList;
-    }
+    public void setCityName(String cityName) {this.cityName = cityName;}
+    public void setRoomType(String roomType) {this.roomType = roomType;}
+    public void setCheckInDate(String checkInDate) {this.checkInDate = checkInDate;}
+    public void setCheckOutDate(String checkOutDate) {this.checkOutDate = checkOutDate;}
+
+    //    public ArrayList<String> getListOfAllParams() {
+//        ArrayList<String> stringArrayList = new ArrayList<String>();
+//        stringArrayList.add(cityName.getClass().getSimpleName());
+//        stringArrayList.add(roomType.getClass().getSimpleName());
+//        stringArrayList.add(checkInDate.getClass().getSimpleName());
+//        stringArrayList.add(checkOutDate.getClass().getSimpleName());
+//        return stringArrayList;
+//    }
 }

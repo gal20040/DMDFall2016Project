@@ -51,19 +51,29 @@ public class BookController {
         return "addBook";
     }
 
-    @RequestMapping(value = "addBook/{paramString}", method = RequestMethod.GET)
-//    @PreAuthorize("isAuthenticated()")
-    public String addBook(@PathVariable String paramString, Model model){
-        Book book = new Book();
-        book.setName(paramString);
-        book.setGenre("book.setGenre");
-        model.addAttribute("bookq", book);
-        return "addBook";
-    }
+    /**
+     * Можно обрабатывать параметры из адресной строки.
+     * UPDATE: Решили не использовать параметры из адресной строки.
+     * @param paramString
+     * @param model
+     * @return
+     */
+//    @RequestMapping(value = "addBook{paramString}", method = RequestMethod.GET)
+////    @PreAuthorize("isAuthenticated()")
+//    public String addBook(@PathVariable String paramString,
+//                          Model model){
+//        Book book = new Book();
+//        book.setName(paramString);
+//        book.setGenre("book.setGenre");
+//        model.addAttribute("bookq", book);
+//        return "addBook";
+//    }
 
     @RequestMapping(value = "addBook", method = RequestMethod.POST)
 //    @PreAuthorize("isAuthenticated()")
-    public String addBook(@ModelAttribute("bookq") Book book, BindingResult bindingResult, Model model){
+    public String addBook(@ModelAttribute("bookq") Book book,
+                          BindingResult bindingResult,
+                          Model model){
 //        this.bookValidator
 //                .validate(wishfulRoomData, bindingResult);
 //        if (bindingResult.hasErrors())
@@ -71,10 +81,24 @@ public class BookController {
 
 //        this.bookRepository
 //                .addBook(wishfulRoomData);
-        WishfulRoomData wishfulRoomData = new WishfulRoomData(book.getName() + "qwe", book.getGenre() + "asd",
+//        String returnString, cityName = "", cityGenre = "";
+//        if (!book.getName().equals("")
+//                || !book.getGenre().equals("")) {
+//            if (!book.getName().equals("")) {
+//                cityName = "cityName=" + book.getName() + "q"; TO DO String.format
+//            }
+//            if (!book.getGenre().equals("")) {
+//                cityGenre = "cityGenre=" + book.getGenre() + "a"; TO DO cityGenre TO DO String.format
+//            }
+//            returnString = String.format("addBook?%s&%s", cityName, cityGenre);
+//        } else
+//            returnString = "addBook";
+
+        WishfulRoomData wishfulRoomData = new WishfulRoomData(book.getName() + "q", book.getGenre() + "a",
                 "" + "zxc", "" + "poi");
         model.addAttribute("wishfulRoomData", wishfulRoomData);
 //        return "redirect:/";
+//        return returnString;
         return "addBook";
     }
 

@@ -2,12 +2,12 @@ package ru.hotelinno.domain;
 
 import javax.persistence.*;
 
-@Entity //эта аннотация говорит, что эту сущность мы будем хранить в БД //TODO
-@Table(name = "books") //имя таблицы //TODO
+@Entity
+@Table(name = "books")
 public class Book {
 
     @Id
-    @Column(name = "id") //имя колонки в таблице в БД //TODO
+    @Column(name = "id")
     @GeneratedValue //это говорит, что это поле - автогенерируемое //TODO
     private Integer id;
 
