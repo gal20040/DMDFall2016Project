@@ -17,7 +17,7 @@
     <div class="login-link-container">
         <sec:authorize access="isAnonymous()">
             <p>
-                <a href="/j_spring_security_check">Sign In</a>
+                <a href="/spring_security_login">Sign In</a>
             </p>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
