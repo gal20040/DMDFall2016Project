@@ -1,10 +1,9 @@
 /*
-CREATE USER bookmanager@localhost identified BY '123123';
-GRANT USAGE ON *.* TO bookmanager@localhost identified BY '123123';
-CREATE DATABASE IF NOT EXISTS bookmanager;
-GRANT ALL PRIVILEGES ON bookmanager.* TO bookmanager@localhost;
-use bookmanager;
-/*CREATE TABLE books
+CREATE USER hoteluser@localhost identified BY '123123';
+GRANT USAGE ON *.* TO hoteluser@localhost identified BY '123123';
+CREATE DATABASE IF NOT EXISTS hotelinno;
+GRANT ALL PRIVILEGES ON hotelinno.* TO hoteluser@localhost;
+/*CREATE TABLE rooms
 (
     id		INT PRIMARY KEY AUTO_INCREMENT,
     name	VARCHAR(50),
@@ -12,7 +11,7 @@ use bookmanager;
     created	TIMESTAMP DEFAULT NOT()
 );*/
 
-CREATE TABLE `books` (
+CREATE TABLE `rooms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `genre` varchar(50) DEFAULT NULL,

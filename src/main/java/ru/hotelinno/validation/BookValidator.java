@@ -18,5 +18,6 @@ public class BookValidator implements Validator {
     public void validate(Object o, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required.name", "Name is required.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genre", "required.genre", "Genre is required.");
+        //TODO сделать валидацию на отсутствие "точки с запятой"
     }
 }
