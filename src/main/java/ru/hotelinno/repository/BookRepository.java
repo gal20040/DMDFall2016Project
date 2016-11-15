@@ -15,7 +15,7 @@ public class BookRepository {
     @Autowired //позволяет внедрять зависимости банов в этот класс //TODO
     private SessionFactory sessionFactory;
 
-    public void addBook(Book book){
+    public void search(Book book){ //addBook
         this.sessionFactory
                 .getCurrentSession()
                 .save(book);

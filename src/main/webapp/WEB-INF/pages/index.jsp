@@ -26,6 +26,6 @@
         </table>
     </c:if>
     <%--<sec:authorize access="isAuthenticated()">--%>
-        <a href="addBook">Search room</a>
+    <a href="search">Search room</a> <%--addBook--%>
     <%--</sec:authorize>--%>
 </t:template>

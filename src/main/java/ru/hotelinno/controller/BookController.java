@@ -38,9 +38,9 @@ public class BookController {
         return "index";
     }
 
-    @RequestMapping(value = "addBook", method = RequestMethod.GET)
+    @RequestMapping(value = "search", method = RequestMethod.GET) //addBook
 //    @PreAuthorize("isAuthenticated()")
-    public String addBook(Model model){
+    public String search(Model model){ //addBook
 
 //        Book book = ; //так можно задавать значения по умолчанию
 //        book.setName("book.setName");
@@ -48,7 +48,7 @@ public class BookController {
 //        model.addAttribute("book", book);
 
         model.addAttribute("bookq", new Book());
-        return "addBook";
+        return "search"; //addBook
     }
 
     /**
@@ -58,29 +58,29 @@ public class BookController {
      * @param model
      * @return
      */
-//    @RequestMapping(value = "addBook{paramString}", method = RequestMethod.GET)
+//    @RequestMapping(value = "search?{paramString}", method = RequestMethod.GET) //addBook
 ////    @PreAuthorize("isAuthenticated()")
-//    public String addBook(@PathVariable String paramString,
-//                          Model model){
+//    public String search(@PathVariable String paramString,
+//                          Model model){ //addBook
 //        Book book = new Book();
 //        book.setName(paramString);
 //        book.setGenre("book.setGenre");
 //        model.addAttribute("bookq", book);
-//        return "addBook";
+//        return "search"; //addBook
 //    }
 
-    @RequestMapping(value = "addBook", method = RequestMethod.POST)
+    @RequestMapping(value = "search", method = RequestMethod.POST) //addBook
 //    @PreAuthorize("isAuthenticated()")
-    public String addBook(@ModelAttribute("bookq") Book book,
+    public String search(@ModelAttribute("bookq") Book book,
                           BindingResult bindingResult,
-                          Model model){
-//        this.bookValidator
-//                .validate(wishfulRoomData, bindingResult);
-//        if (bindingResult.hasErrors())
-//            return "addBook";
+                          Model model){ //addBook
+        this.bookValidator
+                .validate(book, bindingResult);
+        if (bindingResult.hasErrors())
+            return "search"; //addBook
 
 //        this.bookRepository
-//                .addBook(wishfulRoomData);
+//                .search(wishfulRoomData); //addBook
 //        String returnString, cityName = "", cityGenre = "";
 //        if (!book.getName().equals("")
 //                || !book.getGenre().equals("")) {
@@ -90,19 +90,19 @@ public class BookController {
 //            if (!book.getGenre().equals("")) {
 //                cityGenre = "cityGenre=" + book.getGenre() + "a"; TO DO cityGenre TO DO String.format
 //            }
-//            returnString = String.format("addBook?%s&%s", cityName, cityGenre);
+//            returnString = String.format("search?%s&%s", cityName, cityGenre); //addBook
 //        } else
-//            returnString = "addBook";
+//            returnString = "search"; //addBook
 
         WishfulRoomData wishfulRoomData = new WishfulRoomData(book.getName() + "q", book.getGenre() + "a",
                 "" + "zxc", "" + "poi");
         model.addAttribute("wishfulRoomData", wishfulRoomData);
 //        return "redirect:/";
 //        return returnString;
-        return "addBook";
+        return "search"; //addBook
     }
 
-//    @RequestMapping(value = "addBook/?{paramString}", method = RequestMethod.GET)
+//    @RequestMapping(value = "search/?{paramString}", method = RequestMethod.GET) //addBook
 //    public String deleteBook(@PathVariable String paramString){
 //        WishfulRoomData wishfulRoomData = parseParamString(paramString);
 ////        this.bookRepository
