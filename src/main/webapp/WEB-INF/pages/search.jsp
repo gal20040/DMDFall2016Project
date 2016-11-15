@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <t:template>
-    <form:form method="post" action="search" commandName="bookq"> <%--addBook--%>
+    <form:form method="post" action="search" commandName="defaultSearchData"> <%--addBook--%> <%--bookq--%>
         <table>
             <tr>
                 <td><form:label path="name">

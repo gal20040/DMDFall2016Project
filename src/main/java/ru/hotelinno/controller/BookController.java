@@ -32,22 +32,21 @@ public class BookController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getBooks(Model model){
-        List<Book> books = this.bookRepository
+        List<Book> allRecords = this.bookRepository
                 .listAll();
-        model.addAttribute("books", books);
+        model.addAttribute("allRecords", allRecords);
         return "index";
     }
 
     @RequestMapping(value = "search", method = RequestMethod.GET) //addBook
-//    @PreAuthorize("isAuthenticated()")
     public String search(Model model){ //addBook
 
 //        Book book = ; //так можно задавать значения по умолчанию
 //        book.setName("book.setName");
 //        book.setGenre("book.setGenre");
-//        model.addAttribute("book", book);
+//        model.addAttribute("defaultSearchData", book);
 
-        model.addAttribute("bookq", new Book());
+        model.addAttribute("defaultSearchData", new Book()); //bookq
         return "search"; //addBook
     }
 
@@ -59,21 +58,19 @@ public class BookController {
      * @return
      */
 //    @RequestMapping(value = "search?{paramString}", method = RequestMethod.GET) //addBook
-////    @PreAuthorize("isAuthenticated()")
 //    public String search(@PathVariable String paramString,
 //                          Model model){ //addBook
 //        Book book = new Book();
 //        book.setName(paramString);
 //        book.setGenre("book.setGenre");
-//        model.addAttribute("bookq", book);
+//        model.addAttribute("defaultSearchData", book); //bookq
 //        return "search"; //addBook
 //    }
 
     @RequestMapping(value = "search", method = RequestMethod.POST) //addBook
-//    @PreAuthorize("isAuthenticated()")
-    public String search(@ModelAttribute("bookq") Book book,
+    public String search(@ModelAttribute("defaultSearchData") Book book,
                           BindingResult bindingResult,
-                          Model model){ //addBook
+                          Model model){ //addBook //bookq
         this.bookValidator
                 .validate(book, bindingResult);
         if (bindingResult.hasErrors())
@@ -184,6 +181,7 @@ public class BookController {
 
     @RequestMapping(value = "deleteBook/{id}", method = RequestMethod.GET)
     @PreAuthorize("hasRole('admin')")
+//    @PreAuthorize("isAuthenticated()")
     public String deleteBook(@PathVariable Integer id){
         this.bookRepository
                 .removeBook(id);

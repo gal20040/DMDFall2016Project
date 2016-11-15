@@ -3,7 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <t:template>
-    <c:if test = "${!empty books}">
+    <c:if test = "${!empty allRecords}">
         <table class="book-list-table">
             <tr>
                 <th>ID</th>
@@ -13,7 +13,7 @@
                     <th>&nbsp;</th>
                 </sec:authorize>
             </tr>
-            <c:forEach items = "${books}" var = "book">
+            <c:forEach items = "${allRecords}" var = "book">
                 <tr>
                     <td>${book.id}</td>
                     <td>${book.name}</td>
