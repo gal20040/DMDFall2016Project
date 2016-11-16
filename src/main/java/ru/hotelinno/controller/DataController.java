@@ -51,7 +51,8 @@ public class DataController {
 //        b ook.setGenre("book.setGenre");
 //        model.addAttribute("defaultSearchData", b ook);
 
-        model.addAttribute("defaultSearchData", new Book()); //b ookq
+//        model.addAttribute("defaultSearchData", new B ook()); //b ookq
+        model.addAttribute("defaultSearchData", new WishfulRoomData());
         return "search"; //addB ook
     }
 
@@ -59,19 +60,19 @@ public class DataController {
      * Get searching parameters from user.
      */
     @RequestMapping(value = "search", method = RequestMethod.POST) //addB ook
-    public String search(@ModelAttribute("defaultSearchData") Book book,
+    public String search(@ModelAttribute("defaultSearchData") WishfulRoomData wishfulRoomData, //B ook b ook
                           BindingResult bindingResult,
                           Model model){ //addB ook //b ookq
         this.searchDataValidator
-                .validate(book, bindingResult);
+                .validate(wishfulRoomData, bindingResult);
         if (bindingResult.hasErrors())
             return "search"; //addB ook
 
 //        this.b ookRepository
 //                .search(wishfulRoomData); //addB ook
 
-        WishfulRoomData wishfulRoomData = new WishfulRoomData(book.getName() + "q", book.getGenre() + "a",
-                "" + "zxc", "" + "poi");
+//        WishfulRoomData wishfulRoomData = new WishfulRoomData(b ook.getName() + "q", b ook.getGenre() + "a",
+//                "" + "zxc", "" + "poi");
         model.addAttribute("wishfulRoomData", wishfulRoomData);
         return "search"; //addB ook
     }

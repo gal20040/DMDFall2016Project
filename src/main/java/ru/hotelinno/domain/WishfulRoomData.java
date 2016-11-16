@@ -7,6 +7,8 @@ public class WishfulRoomData {
     private String checkInDate;
     private String checkOutDate;
 
+    public WishfulRoomData() {}
+
     public WishfulRoomData(String cityName, String roomType, String checkInDate, String checkOutDate) {
         this.cityName = cityName;
         this.roomType = roomType;

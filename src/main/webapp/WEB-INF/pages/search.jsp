@@ -3,21 +3,21 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <t:template>
-    <form:form method="post" action="search" commandName="defaultSearchData"> <%--addBook--%> <%--bookq--%>
+    <form:form method="post" action="search" commandName="defaultSearchData"> <%--addB ook--%> <%--b ookq--%>
         <table>
             <tr>
-                <td><form:label path="name">
+                <td><form:label path="cityName">
                     City
                 </form:label></td>
-                <td><form:input path="name"/></td>
-                <td><form:errors cssClass="error" path="name"></form:errors></td>
+                <td><form:input path="cityName"/></td>
+                <td><form:errors cssClass="error" path="cityName"></form:errors></td>
             </tr>
             <tr>
-                <td><form:label path="genre">
+                <td><form:label path="roomType">
                     Room type
                 </form:label></td>
-                <td><form:input path="genre"/></td>
-                <td><form:errors cssClass="error" path="genre"></form:errors> </td>
+                <td><form:input path="roomType"/></td>
+                <td><form:errors cssClass="error" path="roomType"></form:errors> </td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="Search room"/></td>
