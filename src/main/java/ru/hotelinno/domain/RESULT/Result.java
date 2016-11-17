@@ -1,7 +1,5 @@
 package ru.hotelinno.domain.RESULT;
 
-import java.util.Date;
-
 public  class Result {
     private int hotelID;
     private String hotelName;
@@ -9,8 +7,6 @@ public  class Result {
     private int roomID;
     private String roomType;
     private int price;
-    private Date checkIn;
-    private Date checkOut;
 
     public int getHotelID() {
         return hotelID;
@@ -28,14 +24,6 @@ public  class Result {
         return address;
     }
 
-    public Date getCheckIn() {
-        return checkIn;
-    }
-
-    public Date getCheckOut() {
-        return checkOut;
-    }
-
     public String getHotelName() {
         return hotelName;
     }
@@ -50,14 +38,6 @@ public  class Result {
 
     public void setHotelID(int hotelID) {
         this.hotelID = hotelID;
-    }
-
-    public void setCheckIn(Date checkIn) {
-        this.checkIn = checkIn;
-    }
-
-    public void setCheckOut(Date checkOut) {
-        this.checkOut = checkOut;
     }
 
     public void setHotelName(String hotelName) {

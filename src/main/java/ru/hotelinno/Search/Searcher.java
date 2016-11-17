@@ -13,27 +13,28 @@ import java.util.List;
 
 public class Searcher {
     private Connection con;
-    private ConnectionPool pool;
+    private ConnectionPool pool = new ConnectionPool();
     public Searcher(){
         pool = new ConnectionPool();
         pool.initConnectionPool("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/hotelinno", "hoteluser", "123123");
         this.con= pool.getConnection();
     }
-    public List<Result> searchRooms(List<String> options) throws SQLException{
+    public  List<Result> searchRooms(List<String> options) throws SQLException{
         con.createStatement().executeUpdate("DROP TABLE IF EXISTS tempHotel");
         con.createStatement().executeUpdate("CREATE TEMPORARY TABLE tempHotel AS ( " +
-                "SELECT HotelTable.*, RoomTable.* " +
+                "SELECT RoomTable.*, HotelTable.*" +
                 "FROM Room RoomTable, Hotel HotelTable " +
                 "LEFT JOIN City CityTable ON CityTable.CityID = HotelTable.CityID " +
-                "WHERE CityTable.CityName = " + options.get(0) + ");");
-        PreparedStatement ps = con.prepareStatement("SELECT tempHotelTable.HotelID, tempHotelTable.HotelName, tempHotelTable.Adress, " +
-                "tempHotelTable.RoomID, tempHotelTable.RoomTypeName, tempHotelTable.CheckIn, tempHotelTableCheckOut "+
-                "FROM tempHotel tempHotelTable\n" +
-                "LEFT JOIN roombooking RBTable ON RBTable.HotelID = tempHotelTable.HotelID AND RBTable.RoomID = tempHotelTable.RoomID\n" +
-                "AND ((CheckIn > ? AND CheckOut < ?)\n" +
-                "OR (CheckIn < ? AND CheckOut > ?)\n" +
-                "OR (CheckIn > ? AND CheckIn < ?)\n" +
-                "OR (CheckOut > ? AND CheckOut < ?))\n" +
+                "WHERE CityTable.CityName = '" + options.get(0) + "' );");
+        PreparedStatement ps = con.prepareStatement("SELECT tempHotelTable.HotelID, tempHotelTable.HotelName, tempHotelTable.Address, " +
+                "tempHotelTable.RoomID, RTTable.RoomTypeName, RTTable.Price "+
+                "FROM tempHotel tempHotelTable " +
+                "LEFT JOIN roombooking RBTable ON RBTable.HotelID = tempHotelTable.HotelID AND RBTable.RoomID = tempHotelTable.RoomID " +
+                    "AND ((CheckIn > ? AND CheckOut < ?)\n" +
+                    "OR (CheckIn < ? AND CheckOut > ?)\n" +
+                    "OR (CheckIn > ? AND CheckIn < ?)\n" +
+                    "OR (CheckOut > ? AND CheckOut < ?))\n" +
+                "LEFT JOIN roomtype RTTable ON RTTable.RoomTypeID = tempHotelTable.TypeID " +
                 "WHERE\n" +
                 "RBTable.HotelID IS NULL\n" +
                 "AND RBTable.RoomID IS NULL\n" + formQuery(options) +

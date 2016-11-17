@@ -13,8 +13,6 @@ public class ResultDAO {
         result.setRoomID(rs.getInt("RoomID"));
         result.setRoomType(rs.getString("RoomTypeName"));
         result.setPrice(rs.getInt("Price"));
-        result.setCheckIn(rs.getDate("CheckInn"));
-        result.setCheckOut(rs.getDate("CheckOut"));
         return result;
     }
 }
