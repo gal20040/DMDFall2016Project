@@ -51,7 +51,9 @@ public class DataController {
 
         WishfulRoomData wishfulRoomData = new WishfulRoomData(); //так можно задавать значения по умолчанию
         wishfulRoomData.setCityName("Kazan");
-        wishfulRoomData.setRoomType("Econom");
+        wishfulRoomData.setRoomType("Comfort");
+        wishfulRoomData.setCheckInDate("11/13/2016");
+        wishfulRoomData.setCheckOutDate("11/15/2016");
 
         model.addAttribute("defaultSearchData", wishfulRoomData);
 //        model.addAttribute("defaultSearchData", new WishfulRoomData());

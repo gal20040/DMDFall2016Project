@@ -23,10 +23,17 @@
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu"> <span class="sr-only">Открыть навигацию</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu">
+                <span class="sr-only">Открыть навигацию</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
+        </div>
         <div class="collaplse navbar-collapse" id="respisive-menu">
             <ul class="nav navbar-nav">
-                <li><a href="search.html"><i class="fa fa-search" aria-hidden="true"></i>Just Search Ticket</a>
+                <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i>Just Search Ticket</a>
                 <li>
             </ul>
         </div>
@@ -43,7 +50,7 @@
 
         <form:label path="roomType">Room Type</form:label>
         <form:select path="roomType" class="selectpicker form-control">
-            <option>Not choosen</option>
+            <option>Not chosen</option>
             <option>Econom</option>
             <option>Comfort</option>
             <option>Business</option>
@@ -58,47 +65,47 @@
         <label class="checkbox">
             <input type="checkbox"> I am fully agree with everything </label>
 
-        <%--<input type="button" onclick="location.href='reservation.html';" value="Make a reservation" />--%>
+            <%--<input type="button" onclick="location.href='reservation.html';" value="Make a reservation" />--%>
         <button type="submit" class="btn">Make a reservation</button>
     </fieldset>
 </form:form>
 <%--</form>--%>
 
 <%--<c:if test = "${!empty wishfulRoomData}">--%>
-    <%--<h5>wishfulRoomData:</h5>--%>
-    <%--<table class="book-list-table">--%>
-        <%--<tr>--%>
-                <%--&lt;%&ndash;<th>ID</th>&ndash;%&gt;--%>
-            <%--<th>City</th>--%>
-            <%--<th>Room type</th>--%>
-            <%--<th>Check in date</th>--%>
-            <%--<th>Check out date</th>--%>
-                <%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<th>&nbsp;</th>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
-        <%--</tr>--%>
-            <%--&lt;%&ndash;<c:forEach items = "${books}" var = "book">&ndash;%&gt;--%>
-        <%--<tr>--%>
-            <%--<td>${wishfulRoomData.cityName}</td>--%>
-            <%--<td>${wishfulRoomData.roomType}</td>--%>
-            <%--<td>${wishfulRoomData.checkInDate}</td>--%>
-            <%--<td>${wishfulRoomData.checkOutDate}</td>--%>
-                <%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
-                <%--&lt;%&ndash;<td><a href="javascript:BookUtil.deleteBook(${book.id})">Delete</a></td>&ndash;%&gt;--%>
-                <%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
-        <%--</tr>--%>
-            <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<c:forEach items = "${rooms}" var = "room">&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<tr>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<td>${room.roomID}</td>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<td>${room.typeID}</td>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;<td>${room.genre}</td>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;&ndash;%&gt;--%>
-            <%--&lt;%&ndash;&lt;%&ndash;<td><a href="javascript:RoomUtil.deleteRoom(${room.roomID})">Delete</a></td>&ndash;%&gt;&ndash;%&gt;--%>
-            <%--&lt;%&ndash;&lt;%&ndash;</sec:authorize>&ndash;%&gt;&ndash;%&gt;--%>
-            <%--&lt;%&ndash;</tr>&ndash;%&gt;--%>
-            <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
-    <%--</table>--%>
+<%--<h5>wishfulRoomData:</h5>--%>
+<%--<table class="book-list-table">--%>
+<%--<tr>--%>
+<%--&lt;%&ndash;<th>ID</th>&ndash;%&gt;--%>
+<%--<th>City</th>--%>
+<%--<th>Room type</th>--%>
+<%--<th>Check in date</th>--%>
+<%--<th>Check out date</th>--%>
+<%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<th>&nbsp;</th>&ndash;%&gt;--%>
+<%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
+<%--</tr>--%>
+<%--&lt;%&ndash;<c:forEach items = "${books}" var = "book">&ndash;%&gt;--%>
+<%--<tr>--%>
+<%--<td>${wishfulRoomData.cityName}</td>--%>
+<%--<td>${wishfulRoomData.roomType}</td>--%>
+<%--<td>${wishfulRoomData.checkInDate}</td>--%>
+<%--<td>${wishfulRoomData.checkOutDate}</td>--%>
+<%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<td><a href="javascript:BookUtil.deleteBook(${book.id})">Delete</a></td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
+<%--</tr>--%>
+<%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<c:forEach items = "${rooms}" var = "room">&ndash;%&gt;--%>
+<%--&lt;%&ndash;<tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<td>${room.roomID}</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<td>${room.typeID}</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;<td>${room.genre}</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;&ndash;%&gt;--%>
+<%--&lt;%&ndash;&lt;%&ndash;<td><a href="javascript:RoomUtil.deleteRoom(${room.roomID})">Delete</a></td>&ndash;%&gt;&ndash;%&gt;--%>
+<%--&lt;%&ndash;&lt;%&ndash;</sec:authorize>&ndash;%&gt;&ndash;%&gt;--%>
+<%--&lt;%&ndash;</tr>&ndash;%&gt;--%>
+<%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
+<%--</table>--%>
 <%--</c:if>--%>
 
 <div class="navbar navbar-inverse navbar-static-bottom">
@@ -161,39 +168,39 @@
 <%--</form:form>--%>
 
 <%--<c:if test = "${!empty wishfulRoomData}">--%>
-<%--<h5>Это запрошенные данные:</h5> &lt;%&ndash;TODO надо решить проблему с кодировкой&ndash;%&gt;--%>
-<%--<table class="book-list-table">--%>
-<%--<tr>--%>
-<%--&lt;%&ndash;<th>ID</th>&ndash;%&gt;--%>
-<%--<th>City</th>--%>
-<%--<th>Room type</th>--%>
-<%--<th>Check in date</th>--%>
-<%--<th>Check out date</th>--%>
-<%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<th>&nbsp;</th>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
-<%--</tr>--%>
-<%--<c:forEach items = "${books}" var = "book">--%>
-<%--<tr>--%>
-<%--<td>${wishfulRoomData.cityName}</td>--%>
-<%--<td>${wishfulRoomData.roomType}</td>--%>
-<%--<td>${wishfulRoomData.checkInDate}</td>--%>
-<%--<td>${wishfulRoomData.checkOutDate}</td>--%>
-<%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<td><a href="javascript:BookUtil.deleteBook(${book.id})">Delete</a></td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
-<%--</tr>--%>
-<%--</c:forEach>--%>
-<%--&lt;%&ndash;<c:forEach items = "${rooms}" var = "room">&ndash;%&gt;--%>
-<%--&lt;%&ndash;<tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<td>${room.roomID}</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<td>${room.typeID}</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;<td>${room.genre}</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;&ndash;%&gt;--%>
-<%--&lt;%&ndash;&lt;%&ndash;<td><a href="javascript:RoomUtil.deleteRoom(${room.roomID})">Delete</a></td>&ndash;%&gt;&ndash;%&gt;--%>
-<%--&lt;%&ndash;&lt;%&ndash;</sec:authorize>&ndash;%&gt;&ndash;%&gt;--%>
-<%--&lt;%&ndash;</tr>&ndash;%&gt;--%>
-<%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
-<%--</table>--%>
+    <%--<h5>Это запрошенные данные:</h5> &lt;%&ndash;TODO надо решить проблему с кодировкой&ndash;%&gt;--%>
+    <%--<table class="book-list-table">--%>
+        <%--<tr>--%>
+                <%--&lt;%&ndash;<th>ID</th>&ndash;%&gt;--%>
+            <%--<th>City</th>--%>
+            <%--<th>Room type</th>--%>
+            <%--<th>Check in date</th>--%>
+            <%--<th>Check out date</th>--%>
+                <%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<th>&nbsp;</th>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
+        <%--</tr>--%>
+        <%--<c:forEach items = "${wishfulRoomData}" var = "book">--%>
+            <%--<tr>--%>
+                <%--<td>${wishfulRoomData.cityName}</td>--%>
+                <%--<td>${wishfulRoomData.roomType}</td>--%>
+                <%--<td>${wishfulRoomData.checkInDate}</td>--%>
+                <%--<td>${wishfulRoomData.checkOutDate}</td>--%>
+                    <%--&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<td><a href="javascript:BookUtil.deleteBook(${book.id})">Delete</a></td>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</sec:authorize>&ndash;%&gt;--%>
+            <%--</tr>--%>
+        <%--</c:forEach>--%>
+            <%--&lt;%&ndash;<c:forEach items = "${rooms}" var = "room">&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<tr>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<td>${room.roomID}</td>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<td>${room.typeID}</td>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;<td>${room.genre}</td>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;&lt;%&ndash;<sec:authorize access="hasRole('admin')">&ndash;%&gt;&ndash;%&gt;--%>
+            <%--&lt;%&ndash;&lt;%&ndash;<td><a href="javascript:RoomUtil.deleteRoom(${room.roomID})">Delete</a></td>&ndash;%&gt;&ndash;%&gt;--%>
+            <%--&lt;%&ndash;&lt;%&ndash;</sec:authorize>&ndash;%&gt;&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</tr>&ndash;%&gt;--%>
+            <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
+    <%--</table>--%>
 <%--</c:if>--%>
 <%--</t:template>--%>
