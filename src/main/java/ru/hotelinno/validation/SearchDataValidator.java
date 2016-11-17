@@ -21,6 +21,8 @@ public class SearchDataValidator implements Validator {
 //        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genre", "required.genre", "Genre is required.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cityName", "required.cityName", "City is required.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "roomType", "required.roomType", "Room type is required.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "checkInDate", "required.checkInDate", "Check in date is required.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "checkOutDate", "required.checkOutDate", "Check in date is required.");
         //TODO сделать валидацию на отсутствие "точки с запятой"
     }
 }
