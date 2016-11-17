@@ -46,10 +46,10 @@ public class DataController {
     @RequestMapping(value = "search", method = RequestMethod.GET) //addB ook
     public String search(Model model){ //addB ook
 
-//        B ook b ook = ; //так можно задавать значения по умолчанию
-//        b ook.setName("book.setName");
-//        b ook.setGenre("book.setGenre");
-//        model.addAttribute("defaultSearchData", b ook);
+//        WishfulRoomData wishfulRoomData = new WishfulRoomData(); //так можно задавать значения по умолчанию
+//        wishfulRoomData.setCityName("wishfulRoomData.setCityName");
+//        wishfulRoomData.setRoomType("wishfulRoomData.setRoomType");
+//        model.addAttribute("defaultSearchData", wishfulRoomData);
 
 //        model.addAttribute("defaultSearchData", new B ook()); //b ookq
         model.addAttribute("defaultSearchData", new WishfulRoomData());
@@ -73,6 +73,8 @@ public class DataController {
 
 //        WishfulRoomData wishfulRoomData = new WishfulRoomData(b ook.getName() + "q", b ook.getGenre() + "a",
 //                "" + "zxc", "" + "poi");
+//        wishfulRoomData.setCityName(wishfulRoomData.getCityName() + 'q');
+//        wishfulRoomData.setRoomType(wishfulRoomData.getRoomType() + 'q');
         model.addAttribute("wishfulRoomData", wishfulRoomData);
         return "search"; //addB ook
     }
