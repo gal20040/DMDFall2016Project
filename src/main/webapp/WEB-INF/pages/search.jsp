@@ -11,11 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search</title>
     <link rel="stylesheet" href="../../resources/css/font-awesome.min.css ">
-    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../resources/css/bootstrap-datetimepicker.min.css">
-    <script type="text/javascript" src="../../resources/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="../../resources/css/style.css">
+    <script src="../../resources/js/jquery-3.1.1.min.js"></script>
+    <script src="../../resources/js/bootstrap.js"></script>
+    <script src="../../resources/js/validator.min.js"></script>
     <script type="text/javascript" src="../../resources/js/moment-with-locales.min.js"></script>
-    <script type="text/javascript" src="../../resources/js/bootstrap.min.js"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../resources/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 
