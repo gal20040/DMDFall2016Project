@@ -4,28 +4,45 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!doctype>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-    <script src="<c:url value="/resources/script/bookUtil.js" />"></script>
-    <title>Book Manager</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>InnoHotel</title>
+    <!-- Bootstrap -->
+    <link href="<c:url value=" /resources/css/main.css " />" rel="stylesheet">
+    <link href="<c:url value=" /resources/css/bootstrap.css " />" rel="stylesheet">
+    <link href="<c:url value=" /resources/css/font-awesome.css " />" rel="stylesheet">
+    <link href="<c:url value=" /resources/css/style.css " />" rel="stylesheet">
+    <script src="<c:url value=" /resources/script/bookUtil.js " />"></script>
 </head>
+
 <body>
-<div class="content">
-    <h1>Book Manager</h1>
-
-    <div class="login-link-container">
-        <sec:authorize access="isAnonymous()">
-            <p>
-                <a href="/spring_security_login">Sign In</a>
-            </p>
-        </sec:authorize>
-        <sec:authorize access="isAuthenticated()">
-            <a href="/j_spring_security_logout">Sign Out</a>
-        </sec:authorize>
-    </div>
-
     <jsp:doBody/>
-</div>
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-header"> <a class="navbar-brand">Developers</a> </div>
+            <div class="collaplse navbar-collapse" id="respisive-menu">
+                <ul class="nav navbar-nav">
+                    <li><a>Anton Zalaldinov</a>
+                        <li>
+                            <li><a>Artem Grodetskiy</a>
+                                <li>
+                                    <li><a>Ilya Zhingalov</a>
+                                        <li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--    <script src="js/bootstrap.js"></script>-->
+    <script src="<c:url value=" /resources/js/bootstrap.js " />"></script>
+    
 </body>
+
 </html>
