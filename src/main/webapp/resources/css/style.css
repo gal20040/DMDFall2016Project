@@ -1,0 +1,34 @@
+a.spoiler:after{
+     content: " [-]"
+}
+
+
+a.spoiler.collapsed:after {
+    content: " [+]"
+}
+
+
+
+
+
+
+
+<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu"> <span class="sr-only">Открыть навигацию</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> </div>
+            <div class="collaplse navbar-collapse" id="respisive-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="search.html"><i class="fa fa-search" aria-hidden="true"></i>Just Search Ticket</a>
+                        <li>
+                </ul>
+                <form action="" class="navbar-form">
+                    <div class="from-group">
+                        <input type="text" placeholder="E-mail" value="">
+                        <input type="password" placeholder="Password" value="">
+                    </div>
+                </form>
+                    
+            </div>
+        </div>
+    </div>
