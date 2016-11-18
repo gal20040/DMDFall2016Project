@@ -57,6 +57,7 @@ public class RoombookingDAO {
         return result;
     }
 
+
     public void deleteRoombooking(int id){
         try{
             PreparedStatement ps = con.prepareStatement("DELETE FROM roombooking WHERE RBID=?");

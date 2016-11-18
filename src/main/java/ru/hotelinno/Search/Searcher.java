@@ -1,15 +1,12 @@
 package ru.hotelinno.Search;
 
 import ru.hotelinno.Search.JDBC.ConnectionPool;
-import ru.hotelinno.domain.RESULT.Result;
-import ru.hotelinno.domain.RESULT.ResultDAO;
+import ru.hotelinno.domain.RESULT.*;
+import ru.hotelinno.domain.roombooking.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
+
 
 public class Searcher {
     private Connection con;
@@ -65,5 +62,15 @@ public class Searcher {
             res+=" AND " + options.get(4);
         }
         return res;
+    }
+
+    public void insertBoocking(Roombooking rb, String checkIn, String checkOut) throws SQLException{
+        PreparedStatement ps = con.prepareStatement("INSERT INTO roombooking(HotelID, RoomID, CheckIn, CheckOut) VALUES (?, ?, ?, ?)");
+        ps.setInt(1, rb.getHotelID());
+        ps.setInt(2, rb.getRoomID());
+        ps.setString(3, checkIn);
+        ps.setString(4, checkOut);
+        ps.executeUpdate();
+        ps.close();
     }
 }

@@ -4,15 +4,24 @@ public final class User {
     private int userID;
     private String firstName;
     private String lastName;
-    private int permissions;
+    private int NickName;
     private String password;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void setUserID(int userID) {
         this.userID = userID;
     }
 
-    public int getPermissions() {
-        return permissions;
+    public int getNickName() {
+        return NickName;
     }
 
     public int getUserID() {
@@ -43,7 +52,7 @@ public final class User {
         this.password = password;
     }
 
-    public void setPermissions(int permissions) {
-        this.permissions = permissions;
+    public void setNickName(int permissions) {
+        this.NickName = permissions;
     }
 }

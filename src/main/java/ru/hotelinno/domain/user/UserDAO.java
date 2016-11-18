@@ -21,8 +21,9 @@ public class UserDAO {
         result.setUserID(rs.getInt("UserID"));
         result.setFirstName(rs.getString("FirstName"));
         result.setLastName(rs.getString("LastName"));
-        result.setPermissions(rs.getInt("Permissions"));
+        result.setNickName(rs.getInt("NickName"));
         result.setPassword(rs.getString("Password"));
+        result.setEmail(rs.getString("Email"));
         return result;
     }
 

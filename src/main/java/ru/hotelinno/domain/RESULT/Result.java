@@ -7,6 +7,7 @@ public  class Result {
     private int roomID;
     private String roomType;
     private int price;
+    private String hrID;
 
     public int getHotelID() {
         return hotelID;
@@ -54,5 +55,13 @@ public  class Result {
 
     public void setRoomType(String roomType) {
         this.roomType = roomType;
+    }
+
+    public String getHrID() {
+        return hrID;
+    }
+
+    public void setHrID(String hrID) {
+        this.hrID = hrID;
     }
 }

@@ -13,6 +13,9 @@ public class ResultDAO {
         result.setRoomID(rs.getInt("RoomID"));
         result.setRoomType(rs.getString("RoomTypeName"));
         result.setPrice(rs.getInt("Price"));
+        String hr = "";
+        hr +=  rs.getInt("HotelID")+ rs.getInt("RoomID");
+        result.setHrID(hr);
         return result;
     }
 }
