@@ -2,24 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%--<!DOCTYPE html>--%>
-<%--<html lang="ru">--%>
-
-<%--<head>--%>
-<%--<meta charset="utf-8">--%>
-<%--<meta http-equiv="X-UA-Compatible" content="IE=edge">--%>
-<%--<meta name="viewport" content="width=device-width, initial-scale=1">--%>
-<%--<title>Reservation Page</title>--%>
-<%--<link rel="stylesheet" href="../../resources/css/font-awesome.min.css ">--%>
-<%--<link rel="stylesheet" href="../../resources/css/bootstrap.min.css">--%>
-<%--<link rel="stylesheet" href="../../resources/css/bootstrap-datetimepicker.min.css">--%>
-<%--<script type="text/javascript" src="../../resources/script/jquery-1.11.1.min.js"></script>--%>
-<%--<script type="text/javascript" src="../../resources/script/moment-with-locales.min.js"></script>--%>
-<%--<script type="text/javascript" src="../../resources/script/bootstrap.min.js"></script>--%>
-<%--<script type="text/javascript" src="../../resources/script/bootstrap-datetimepicker.min.js"></script>--%>
-<%--</head>--%>
-
-<%--<body style="margin:10px;">--%>
 <t:template>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -36,7 +18,6 @@
     <br>
     <br>
     <h3><i class="fa fa-bed" aria-hidden="true"></i>Choose your room</h3>
-    <%--<table id="grid-keep-selection" class="table table-condensed table-hover table-striped">--%>
     <table id="grid-basic" class="table table-condensed table-hover table-striped">
         <thead>
         <tr>
@@ -66,39 +47,4 @@
         </c:if>
         </tbody>
     </table>
-    <%--<script type="text/javascript">--%>
-    <%--$("#grid-keep-selection").bootgrid({--%>
-    <%--ajax: true--%>
-    <%--, post: function () {--%>
-    <%--/* To accumulate custom parameter with the request object */--%>
-    <%--return {--%>
-    <%--id: "b0df282a-0d67-40e5-8558-c9e93b7befed"--%>
-    <%--};--%>
-    <%--}--%>
-    <%--, url: "/api/data/basic"--%>
-    <%--, selection: true--%>
-    <%--, multiSelect: true--%>
-    <%--, rowSelect: true--%>
-    <%--, keepSelection: true--%>
-    <%--, formatters: {--%>
-    <%--"link": function (column, row) {--%>
-    <%--return "<a href=\"#\">" + column.id + ": " + row.id + "</a>";--%>
-    <%--}--%>
-    <%--}--%>
-    <%--}).on("selected.rs.jquery.bootgrid", function (e, rows) {--%>
-    <%--var rowIds = [];--%>
-    <%--for (var i = 0; i < rows.length; i++) {--%>
-    <%--rowIds.push(rows[i].id);--%>
-    <%--}--%>
-    <%--alert("Select: " + rowIds.join(","));--%>
-    <%--}).on("deselected.rs.jquery.bootgrid", function (e, rows) {--%>
-    <%--var rowIds = [];--%>
-    <%--for (var i = 0; i < rows.length; i++) {--%>
-    <%--rowIds.push(rows[i].id);--%>
-    <%--}--%>
-    <%--alert("Deselect: " + rowIds.join(","));--%>
-    <%--});--%>
-    <%--</script>--%>
 </t:template>
-<%--</body>--%>
-<%--</html>--%>
