@@ -17,13 +17,13 @@
     <%--<link href="<c:url value=" /resources/css/main.css " />" rel="stylesheet">--%>
     <link href="<c:url value=" /resources/css/bootstrap.css " />" rel="stylesheet">
     <link href="<c:url value=" /resources/css/font-awesome.css " />" rel="stylesheet">
-    <link href="<c:url value=" /resources/css/style.css " />" rel="stylesheet">
     <link rel="stylesheet" href="../../resources/css/font-awesome.min.css ">
     <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../resources/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="../../resources/css/style.css">
 
     <script src="<c:url value=" /resources/script/bookUtil.js"/>"></script>
+    <script type="text/javascript" src="../../resources/script/jquery-1.11.1.min.js"></script>
     <script src="../../resources/script/jquery-3.1.1.min.js"></script>
     <script src="../../resources/script/bootstrap.js"></script>
     <script src="../../resources/script/validator.min.js"></script>
@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../../resources/script/bootstrap-datetimepicker.min.js"></script>
 </head>
 
-<body>
+<body style="margin:20px;">
 <jsp:doBody/>
 <div class="navbar navbar-inverse navbar-static-bottom">
     <div class="container">
