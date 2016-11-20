@@ -5,6 +5,13 @@ public final class Roombooking {
     private int hotelID;
     private int roomID;
 
+    public Roombooking() {}
+
+    public Roombooking(int hotelID, int roomID) {
+        this.hotelID = hotelID;
+        this.roomID = roomID;
+    }
+
     public int getRoomID() {
         return roomID;
     }

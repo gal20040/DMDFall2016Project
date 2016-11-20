@@ -11,9 +11,9 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Login<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="sign-in-page.html"><i class="fa fa-user" aria-hidden="true"></i>Sign in</a></li>
+                            <li><a href="sign-in-page.jsp"><i class="fa fa-user" aria-hidden="true"></i>Sign in</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="fa fa-user-plus"  aria-hidden="true"></i>Sign up</a></li>
+                            <li><a href="sign-up-page.jsp"><i class="fa fa-user-plus"  aria-hidden="true"></i>Sign up</a></li>
                         </ul>
                     </li>
                     <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i>Just Search Ticket</a>
@@ -29,38 +29,38 @@
             <h1>Explore world with us</h1>
         </div>
     </div>
-    <div id="carousel" class="carousel slide">
-        <!-- индикаторы слайдов-->
-        <ol class="carousel-indicators">
-            <li class="active" data-target="#carousel" data-slide-to="0"></li>
-            <li data-target="#carousel" data-slide-to="1"> </li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
-        <!-- слайды-->
-        <div class="carousel-inner">
-            <div class="item active"> <img src="<c:url value=" /resources/images/Moscow.jpg " />"  alt="">
-                <div class="carousel-caption">
-                    <h3>Russia</h3>
-                    <p>Moscow</p>
-                </div>
-            </div>
-            <div class="item"> <img src="<c:url value=" /resources/images/Miami.jpg " />" alt="">
-                <div class="carousel-caption">
-                    <h3>USA</h3>
-                    <p>Miami</p>
-                </div>
-            </div>
-            <div class="item"> <img src="<c:url value=" /resources/images/Paris.jpg " />" alt="">
-                <div class="carousel-caption">
-                    <h3>France</h3>
-                    <p>Paris</p>
-                </div>
-            </div>
-        </div>
-        <!-- стрелки переключиения слайдов-->
-        <a href="#carousel" class="left carousel-control" data-slide="prev"> <span class="glyphicon glyphicon-shevron-left"></span> </a>
-        <a href="#carousel" class="right carousel-control " data-slide="next"> <span class="glyphicon glyphicon-shevron-right"></span> </a>
-    </div>
+    <%--<div id="carousel" class="carousel slide">--%>
+        <%--<!-- индикаторы слайдов-->--%>
+        <%--<ol class="carousel-indicators">--%>
+            <%--<li class="active" data-target="#carousel" data-slide-to="0"></li>--%>
+            <%--<li data-target="#carousel" data-slide-to="1"> </li>--%>
+            <%--<li data-target="#carousel" data-slide-to="2"></li>--%>
+        <%--</ol>--%>
+        <%--<!-- слайды-->--%>
+        <%--<div class="carousel-inner">--%>
+            <%--<div class="item active"> <img src="<c:url value=" /resources/images/Moscow.jpg " />"  alt="">--%>
+                <%--<div class="carousel-caption">--%>
+                    <%--<h3>Russia</h3>--%>
+                    <%--<p>Moscow</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="item"> <img src="<c:url value=" /resources/images/Miami.jpg " />" alt="">--%>
+                <%--<div class="carousel-caption">--%>
+                    <%--<h3>USA</h3>--%>
+                    <%--<p>Miami</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="item"> <img src="<c:url value=" /resources/images/Paris.jpg " />" alt="">--%>
+                <%--<div class="carousel-caption">--%>
+                    <%--<h3>France</h3>--%>
+                    <%--<p>Paris</p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<!-- стрелки переключиения слайдов-->--%>
+        <%--<a href="#carousel" class="left carousel-control" data-slide="prev"> <span class="glyphicon glyphicon-shevron-left"></span> </a>--%>
+        <%--<a href="#carousel" class="right carousel-control " data-slide="next"> <span class="glyphicon glyphicon-shevron-right"></span> </a>--%>
+    <%--</div>--%>
     <%--<c:if test = "${!empty allRecords}">--%>
         <%--<table class="book-list-table">--%>
             <%--<tr>--%>
@@ -88,12 +88,12 @@
     <%--<a href="search">Search room</a>--%>
     <%--</sec:authorize>--%>
         
-        <div class="login-link-container">
-            <sec:authorize access="isAnonymous()">
-                <p> <a href="/spring_security_login">Sign In</a> </p>
-            </sec:authorize>
-            <sec:authorize access="isAuthenticated()">
-                <a href="/j_spring_security_logout">Sign Out</a>
-            </sec:authorize>
-        </div>
+        <%--<div class="login-link-container">--%>
+            <%--<sec:authorize access="isAnonymous()">--%>
+                <%--<p> <a href="/spring_security_login">Sign In</a> </p>--%>
+            <%--</sec:authorize>--%>
+            <%--<sec:authorize access="isAuthenticated()">--%>
+                <%--<a href="/j_spring_security_logout">Sign Out</a>--%>
+            <%--</sec:authorize>--%>
+        <%--</div>--%>
 </t:template>

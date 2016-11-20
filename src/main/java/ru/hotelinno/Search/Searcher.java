@@ -1,15 +1,13 @@
 package ru.hotelinno.Search;
 
 import ru.hotelinno.Search.JDBC.ConnectionPool;
-import ru.hotelinno.domain.RESULT.Result;
-import ru.hotelinno.domain.RESULT.ResultDAO;
+import ru.hotelinno.domain.RESULT.*;
+import ru.hotelinno.domain.WishfulRoomData;
+import ru.hotelinno.domain.roombooking.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
+
 
 public class Searcher {
     private Connection con;
@@ -20,45 +18,53 @@ public class Searcher {
         this.con= pool.getConnection();
     }
     public  List<Result> searchRooms(List<String> options) throws SQLException{
-        con.createStatement().executeUpdate("DROP TABLE IF EXISTS tempHotel;");
-        String paramString = String.format(
-                "CREATE TEMPORARY TABLE tempHotel AS ( \n" +
-                        "SELECT RoomTable.*, HotelTable.* \n" +
-                        "FROM Room RoomTable, Hotel HotelTable \n" +
-                        "    LEFT JOIN City CityTable ON CityTable.CityID = HotelTable.CityID \n" +
-                        "WHERE CityTable.CityName = '%s' );", options.get(0));
-        con.createStatement().executeUpdate(paramString);
-        paramString = String.format(
-                "SELECT tempHotelTable.HotelID, tempHotelTable.HotelName, tempHotelTable.Address, \n" +
-                        "tempHotelTable.RoomID, RTTable.RoomTypeName, RTTable.Price \n"+
-                        "FROM tempHotel tempHotelTable \n" +
-                        "    LEFT JOIN roombooking RBTable ON RBTable.HotelID = tempHotelTable.HotelID AND RBTable.RoomID = tempHotelTable.RoomID \n" +
-                        "        AND ((RBTable.CheckIn > %s AND RBTable.CheckOut < %s)\n" +
-                        "        OR (RBTable.CheckIn < %s AND RBTable.CheckOut > %s)\n" +
-                        "        OR (RBTable.CheckIn > %s AND RBTable.CheckIn < %s)\n" +
-                        "        OR (RBTable.CheckOut > %s AND RBTable.CheckOut < %s))\n" +
-                        "    LEFT JOIN roomtype RTTable ON RTTable.RoomTypeID = tempHotelTable.TypeID \n" +
-                        "WHERE\n" +
-                        "RBTable.HotelID IS NULL\n" +
-                        "AND RBTable.RoomID IS NULL\n %s \n %s",
-                options.get(1), options.get(2), options.get(1), options.get(2),
-                options.get(1), options.get(2), options.get(1), options.get(2),
-                formQuery(options), "ORDER BY RTTable.Price"
-        );
-
-        PreparedStatement ps = con.prepareStatement(paramString);
-//        ps.setString(1, options.get(1));
-//        ps.setString(3, options.get(1));
-//        ps.setString(5, options.get(1));
-//        ps.setString(7, options.get(1));
-//        ps.setString(2, options.get(2));
-//        ps.setString(4, options.get(2));
-//        ps.setString(6, options.get(2));
-//        ps.setString(8, options.get(2));
+        con.createStatement().executeUpdate("DROP TABLE IF EXISTS tempHotel");
+        con.createStatement().executeUpdate("CREATE TEMPORARY TABLE tempHotel AS ( " +
+                "SELECT RoomTable.*, HotelTable.*" +
+                "FROM Room RoomTable, Hotel HotelTable " +
+                "LEFT JOIN City CityTable ON CityTable.CityID = HotelTable.CityID " +
+                "WHERE CityTable.CityName = '" + options.get(0) + "' );");
+//        PreparedStatement ps = con.prepareStatement("SELECT tempHotelTable.HotelID, tempHotelTable.HotelName, tempHotelTable.Address, " +
+//                "tempHotelTable.RoomID, RTTable.RoomTypeName, RTTable.Price " +
+        PreparedStatement ps = con.prepareStatement("SELECT distinct tempHotelTable.HotelName, tempHotelTable.Address, " +
+                "RTTable.RoomTypeName, RTTable.Price " +
+                "FROM tempHotel tempHotelTable " +
+                "LEFT JOIN roombooking RBTable ON RBTable.HotelID = tempHotelTable.HotelID AND RBTable.RoomID = tempHotelTable.RoomID " +
+                "AND ((CheckIn > ? AND CheckOut < ?)\n" +
+                "OR (CheckIn < ? AND CheckOut > ?)\n" +
+                "OR (CheckIn > ? AND CheckIn < ?)\n" +
+                "OR (CheckOut > ? AND CheckOut < ?))\n" +
+                "LEFT JOIN roomtype RTTable ON RTTable.RoomTypeID = tempHotelTable.TypeID " +
+                "WHERE\n" +
+                "RBTable.HotelID IS NULL\n" +
+                "AND RBTable.RoomID IS NULL\n" + formQuery(options) +
+                "ORDER BY tempHotelTable.HotelID, tempHotelTable.RoomID");
+        ps.setString(1, options.get(1));
+        ps.setString(3, options.get(1));
+        ps.setString(5, options.get(1));
+        ps.setString(7, options.get(1));
+        ps.setString(2, options.get(2));
+        ps.setString(4, options.get(2));
+        ps.setString(6, options.get(2));
+        ps.setString(8, options.get(2));
         ResultSet rs = ps.executeQuery();
         List<Result> results = new ArrayList<Result>();
+        int i = 0;
+        String delimiter = "019";
+        String hr;
+        Result result;
         while (rs.next()){
             results.add(ResultDAO.getResultFormRS(rs));
+//            result = results.get(i);
+//            result.setCheckInDate(options.get(1));
+//            result.setCheckOutDate(options.get(2));
+//            hr = result.getHotelID() + delimiter
+//                    + result.getRoomID() + delimiter
+//                    + options.get(1) + delimiter
+//                    + options.get(2);
+////            result.setHrID(hr);
+//            result.setHrID("22");
+//            i++;
         }
         rs.close();
         return results;
@@ -73,5 +79,16 @@ public class Searcher {
             res+=" AND " + options.get(4);
         }
         return res;
+    }
+
+    //    public void insertBoocking(Roombooking rb, String checkIn, String checkOut) throws SQLException{
+    public void insertBoocking(WishfulRoomData wishfulRoomData) throws SQLException{
+        PreparedStatement ps = con.prepareStatement("INSERT INTO roombooking(HotelID, RoomID, CheckIn, CheckOut) VALUES (?, ?, ?, ?)");
+        ps.setInt(1, Integer.parseInt(wishfulRoomData.getHotelID()));
+        ps.setInt(2, Integer.parseInt(wishfulRoomData.getRoomID()));
+        ps.setString(3, wishfulRoomData.getCheckInDate());
+        ps.setString(4, wishfulRoomData.getCheckOutDate());
+        ps.executeUpdate();
+        ps.close();
     }
 }

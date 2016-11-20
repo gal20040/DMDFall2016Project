@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Валидация формы</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href="css/full.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css ">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/validator.min.js"></script>
+    <script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <!--
+    <title>Reservation page</title>
+    
+    
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrapValidator.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/validator.min.js"></script>
+-->
+</head>
+
+<body style="margin:10px;">
+    
+    
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu"> <span class="sr-only">Открыть навигацию</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> </div>
+            <div class="collaplse navbar-collapse" id="respisive-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+                        <li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container content">
+        <form class="form-horizontal" method="post" id="form">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">City<span class="red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="City" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Check-in-Date<span class="red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="date" placeholder="Check-in" pattern="\d{1,2}/\d{1,2}/\d{4}" required> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Check-Out-Date<span class="red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="date2" placeholder="Check-out" pattern="\d{1,2}/\d{1,2}/\d{4}" required> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Choose room type<span class="red">*</span></label>
+                <div class="col-sm-6">
+                    <select class="selectpicker form-control">
+                        <option>Not choosen</option>
+                        <option>Econom</option>
+                        <option>Comfort</option>
+                        <option>Buisness</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <button type="submit" id="submit" class="btn btn-primary">Отправить</button>
+                    <div></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-header"> <a class="navbar-brand">Developes</a> </div>
+            <div class="collaplse navbar-collapse" id="respisive-menu">
+                <ul class="nav navbar-nav">
+                    <li><a>Anton</a>
+                        <li>
+                            <li><a>Artyom</a>
+                                <li>
+                                    <li><a>Ilya</a>
+                                        <li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#form').validator({
+                feedback: {
+                    success: 'glyphicon-thumbs-up'
+                    , error: 'glyphicon-thumbs-down'
+                }
+            });
+        });
+    </script>
+   
+</body>
+
+</html>

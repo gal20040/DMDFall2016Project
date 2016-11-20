@@ -1,8 +1,7 @@
-//удаление не работает почему-то - вроде бы починилось
 function _BookUtil(){
-    this.delete = function(id) { //deleteB ook
+    this.deleteBook = function(id) {
         if (confirm("Are you sure?")) {
-            window.location = "/delete/" + id; //deleteB ook
+            window.location = "/deleteBook/" + id;
         }
     }
 }
