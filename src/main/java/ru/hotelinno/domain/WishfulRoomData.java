@@ -11,20 +11,6 @@ public class WishfulRoomData {
 
     public WishfulRoomData() {}
 
-    public WishfulRoomData(String cityName, String roomType, String checkInDate, String checkOutDate) {
-        this.cityName = cityName;
-        this.roomType = roomType;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-    }
-
-//    public WishfulRoomData(int hotelID, int roomID, String checkInDate, String checkOutDate) {
-//        this.hotelID = hotelID;
-//        this.roomID = roomID;
-//        this.checkInDate = checkInDate;
-//        this.checkOutDate = checkOutDate;
-//    }
-
     public String getCityName() {return cityName;}
     public String getRoomType() {return roomType;}
     public String getCheckInDate() {return checkInDate;}

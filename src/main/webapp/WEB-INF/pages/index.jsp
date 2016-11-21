@@ -27,83 +27,16 @@
                         </ul>
                     </li>
                     <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i>Just Search Ticket</a>
-                        <li>
+                    <li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-                <br>
-                <br>
+            <br>
+            <br>
             <h1>Explore world with us</h1>
         </div>
     </div>
-    <%--<div id="carousel" class="carousel slide">--%>
-        <%--<!-- индикаторы слайдов-->--%>
-        <%--<ol class="carousel-indicators">--%>
-            <%--<li class="active" data-target="#carousel" data-slide-to="0"></li>--%>
-            <%--<li data-target="#carousel" data-slide-to="1"> </li>--%>
-            <%--<li data-target="#carousel" data-slide-to="2"></li>--%>
-        <%--</ol>--%>
-        <%--<!-- слайды-->--%>
-        <%--<div class="carousel-inner">--%>
-            <%--<div class="item active"> <img src="<c:url value=" /resources/images/Moscow.jpg " />"  alt="">--%>
-                <%--<div class="carousel-caption">--%>
-                    <%--<h3>Russia</h3>--%>
-                    <%--<p>Moscow</p>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="item"> <img src="<c:url value=" /resources/images/Miami.jpg " />" alt="">--%>
-                <%--<div class="carousel-caption">--%>
-                    <%--<h3>USA</h3>--%>
-                    <%--<p>Miami</p>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="item"> <img src="<c:url value=" /resources/images/Paris.jpg " />" alt="">--%>
-                <%--<div class="carousel-caption">--%>
-                    <%--<h3>France</h3>--%>
-                    <%--<p>Paris</p>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<!-- стрелки переключиения слайдов-->--%>
-        <%--<a href="#carousel" class="left carousel-control" data-slide="prev"> <span class="glyphicon glyphicon-shevron-left"></span> </a>--%>
-        <%--<a href="#carousel" class="right carousel-control " data-slide="next"> <span class="glyphicon glyphicon-shevron-right"></span> </a>--%>
-    <%--</div>--%>
-    <%--<c:if test = "${!empty allRecords}">--%>
-        <%--<table class="book-list-table">--%>
-            <%--<tr>--%>
-                <%--<th>ID</th>--%>
-                <%--<th>Name</th>--%>
-                <%--<th>Genre</th>--%>
-                <%--<sec:authorize access="hasRole('admin')">--%>
-                    <%--<th>&nbsp;</th>--%>
-                <%--</sec:authorize>--%>
-            <%--</tr>--%>
-            <%--<c:forEach items = "${allRecords}" var = "book">--%>
-                <%--<tr>--%>
-                    <%--<td>${book.id}</td>--%>
-                    <%--<td>${book.name}</td>--%>
-                    <%--<td>${book.genre}</td>--%>
-                    <%--<sec:authorize access="hasRole('admin')">--%>
-                        <%--&lt;%&ndash;удаление не работает почему-то - вроде бы починилось&ndash;%&gt;--%>
-                        <%--<td><a href="javascript:BookUtil.delete(${book.id})">Delete</a></td>--%>
-                    <%--</sec:authorize>--%>
-                <%--</tr>--%>
-            <%--</c:forEach>--%>
-        <%--</table>--%>
-    <%--</c:if>--%>
-    <%--<sec:authorize access="isAuthenticated()">--%>
-    <%--<a href="search">Search room</a>--%>
-    <%--</sec:authorize>--%>
-        
-        <%--<div class="login-link-container">--%>
-            <%--<sec:authorize access="isAnonymous()">--%>
-                <%--<p> <a href="/spring_security_login">Sign In</a> </p>--%>
-            <%--</sec:authorize>--%>
-            <%--<sec:authorize access="isAuthenticated()">--%>
-                <%--<a href="/j_spring_security_logout">Sign Out</a>--%>
-            <%--</sec:authorize>--%>
-        <%--</div>--%>
 </t:template>

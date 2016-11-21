@@ -3,7 +3,6 @@ package ru.hotelinno.Search;
 import ru.hotelinno.Search.JDBC.ConnectionPool;
 import ru.hotelinno.domain.RESULT.*;
 import ru.hotelinno.domain.WishfulRoomData;
-import ru.hotelinno.domain.roombooking.*;
 
 import java.sql.*;
 import java.util.*;
@@ -30,8 +29,6 @@ public class Searcher {
                 "LEFT JOIN City CityTable ON CityTable.CityID = HotelTable.CityID\n" +
                 "WHERE CityTable.CityName = '%s' );", tempHotelTableName, options.get(0));
         con.createStatement().executeUpdate(queryTemplate);
-//        PreparedStatement ps = con.prepareStatement("SELECT tempHotelTable.HotelID, tempHotelTable.HotelName, tempHotelTable.Address, " +
-//                "tempHotelTable.RoomID, RTTable.RoomTypeName, RTTable.Price " +
         queryTemplate = String.format(
                 "SELECT distinct tempHotelTable.HotelID,\n" +
                         "    tempHotelTable.HotelName,\n" +
@@ -55,33 +52,12 @@ public class Searcher {
                 options.get(2), options.get(2), options.get(2), options.get(2),
                 formQuery(options), "ORDER BY RTTable.Price");
         PreparedStatement ps = con.prepareStatement(queryTemplate);
-//        ps.setString(1, options.get(1));
-//        ps.setString(3, options.get(1));
-//        ps.setString(5, options.get(1));
-//        ps.setString(7, options.get(1));
-//        ps.setString(2, options.get(2));
-//        ps.setString(4, options.get(2));
-//        ps.setString(6, options.get(2));
-//        ps.setString(8, options.get(2));
         ResultSet rs = ps.executeQuery();
         List<Result> results = new ArrayList<Result>();
-//        int i = 0;
-//        String delimiter = "019";
-//        String hr;
-//        Result result;
-        while (rs.next()){
+
+
+        while (rs.next())
             results.add(ResultDAO.getResultFormRS(rs));
-//            result = results.get(i);
-//            result.setCheckInDate(options.get(1));
-//            result.setCheckOutDate(options.get(2));
-//            hr = result.getHotelID() + delimiter
-//                    + result.getRoomID() + delimiter
-//                    + options.get(1) + delimiter
-//                    + options.get(2);
-////            result.setHrID(hr);
-//            result.setHrID("22");
-//            i++;
-        }
         rs.close();
         return results;
     }
@@ -97,7 +73,6 @@ public class Searcher {
         return res + "\n";
     }
 
-    //    public void insertBooking(Roombooking rb, String checkIn, String checkOut) throws SQLException{
     public void insertBooking(WishfulRoomData wishfulRoomData) throws SQLException{
         String queryTemplate = String.format(
                 "INSERT INTO roombooking(HotelID, RoomID, CheckIn, CheckOut)\n" +
@@ -107,12 +82,6 @@ public class Searcher {
                 wishfulRoomData.getCheckInDate(),
                 wishfulRoomData.getCheckOutDate());
         PreparedStatement ps = con.prepareStatement(queryTemplate);
-//        ps.setInt(1, Integer.parseInt(wishfulRoomData.getHotelID()));
-//        ps.setInt(2, Integer.parseInt(wishfulRoomData.getRoomID()));
-//        ps.setInt(1, wishfulRoomData.getHotelID());
-//        ps.setInt(2, wishfulRoomData.getRoomID());
-//        ps.setString(3, wishfulRoomData.getCheckInDate());
-//        ps.setString(4, wishfulRoomData.getCheckOutDate());
         ps.executeUpdate();
         ps.close();
     }

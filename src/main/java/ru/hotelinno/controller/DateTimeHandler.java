@@ -33,7 +33,6 @@ class DateTimeHandler {
 
     String getFormattedDate(long timeStampInMinutes) {
         Date date = new Date(timeStampInMinutes * rate);
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
         return format.format(date);
     }
 

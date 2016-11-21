@@ -144,12 +144,14 @@ create table User (
 
 INSERT INTO User (FirstName, LastName, Permissions, Password) VALUES
 ('Mike', 'Tyson', 1, 'MikePass'),
-('Artem', 'Grodetskiy', 2, 'ArtemPass');
+('Anton', 'Zalaldinov', 2, 'AntonPass'),
+('Ilya', 'Zhingalov', 2, 'IlyaPass'),
+('Artem', 'Grodetskiy', 1, 'ArtemPass');
 
 create table RoomBooking (
   RBID integer UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
---  CheckIn date, -- TODO здесь надо указать тип данных "дата" - пока не знаю какой
---  CheckOut date, -- TODO здесь надо указать тип данных "дата" - пока не знаю какой
+  CheckIn TIMESTAMP NOT NULL,
+  CheckOut TIMESTAMP NOT NULL,
   HotelID integer UNSIGNED NOT NULL,
   RoomID integer UNSIGNED NOT NULL,
   FOREIGN KEY (HotelID) REFERENCES Hotel(HotelID),

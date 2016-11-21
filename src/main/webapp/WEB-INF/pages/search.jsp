@@ -14,12 +14,6 @@
                 </button>
                 <a class="navbar-brand" href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
             </div>
-            <div class="collaplse navbar-collapse" id="respisive-menu">
-                <ul class="nav navbar-nav">
-                    <li><a href="search"><i class="fa fa-search" aria-hidden="true"></i>Just Search Ticket</a>
-                    <li>
-                </ul>
-            </div>
         </div>
     </div>
     <br>
@@ -27,25 +21,24 @@
     <div class="container content">
         <form:form class="form-horizontal" method="post" id="form" action="search" commandName="defaultSearchData">
             <div class="form-group">
-                <form:label for="name" class="col-sm-2 control-label" path="cityName">
+                <label for="name" class="col-sm-2 control-label" path="cityName">
                     Enter City Name
                     <span class="red">*</span>
-                </form:label>
+                </label>
                 <div class="col-sm-6">
-                    <form:input type="text" path="cityName" class="form-control" id="name" name="name" placeholder="City" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required=""/>
+                    <form:input type="text" path="cityName" class="form-control" id="name" name="name" placeholder="City" pattern="[a-zA-Z]{3,0}" required="[a-zA-Z]+"/>
                     <span class="glyphicon form-control-feedback" aria-hidden="true">
                 </span>
                 </div>
             </div>
 
             <div class="form-group">
-                <form:label path="roomType" for="name" class="col-sm-2 control-label">
+                <label path="roomType" for="name" class="col-sm-2 control-label">
                     Choose room type
                     <span class="red">*</span>
-                </form:label>
+                </label>
                 <div class="col-sm-6">
-                    <form:select path="roomType" class="selectpicker form-control" required="">
-                        <%--<option>Not chosen</option>--%>
+                    <form:select path="roomType" class="selectpicker form-control">
                         <option>Econom</option>
                         <option>Comfort</option>
                         <option>Business</option>
@@ -54,24 +47,24 @@
             </div>
 
             <div class="form-group">
-                <form:label path="checkInDate" for="name" class="col-sm-2 control-label">
+                <label path="checkInDate" for="name" class="col-sm-2 control-label">
                     Check-in-Date
                     <span class="red">*</span>
-                </form:label>
+                </label>
                 <div class="col-sm-6">
-                    <form:input path="checkInDate" class="form-control" id="date" placeholder="Check-in" pattern="\d{1,2}/\d{1,2}/\d{4}" required=""/>
+                    <form:input path="checkInDate" class="form-control" id="date" placeholder="Check-in" pattern="\d{2}/\d{2}/\d{4}" required="\d{2}/\d{2}/\d{4}"/>
                     <span class="glyphicon form-control-feedback" aria-hidden="true">
                 </span>
                 </div>
             </div>
 
             <div class="form-group">
-                <form:label path="checkOutDate" for="name" class="col-sm-2 control-label">
+                <label path="checkOutDate" for="name" class="col-sm-2 control-label">
                     Check-Out-Date
                     <span class="red">*</span>
-                </form:label>
+                </label>
                 <div class="col-sm-6">
-                    <form:input path="checkOutDate" class="form-control" id="date2" placeholder="Check-out" pattern="\d{1,2}/\d{1,2}/\d{4}" required=""/>
+                    <form:input path="checkOutDate" class="form-control" id="date2" placeholder="Check-out" pattern="\d{2}/\d{2}/\d{4}" required="\d{2}/\d{2}/\d{4}"/>
                     <span class="glyphicon form-control-feedback" aria-hidden="true">
                 </span>
                 </div>

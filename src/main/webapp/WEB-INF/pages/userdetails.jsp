@@ -15,22 +15,12 @@
                 <a class="navbar-brand" href="/">
                     <i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
             </div>
-            <div class="collaplse navbar-collapse" id="respisive-menu">
-                <ul class="nav navbar-nav">
-                    <li><a href="search"><i class="fa fa-arrow-left" aria-hidden="true"></i>Search again</a>
-                    <li>
-                </ul>
-            </div>
         </div>
     </div>
     <br>
     <br>
     <div class="container content">
         <c:if test="${!empty choosenHotelRoom}">
-            <%--${result.hotelName}--%>
-            <%--${result.address}--%>
-            <%--${result.roomType}--%>
-
             <form class="form-horizontal" method="post" id="form">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">Check-in date<span class="red">*</span></label>
@@ -74,14 +64,14 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">First name<span class="red">*</span></label>
                         <div class="col-sm-6">
-                            <form:input type="text" path="firstName" class="form-control" id="name" name="name" placeholder="First name" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required=""/>
+                            <form:input type="text" path="firstName" class="form-control" id="name" name="name" placeholder="First name" pattern="[a-zA-Z]{3,}" required="[a-zA-Z]{3,}"/>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Last Name<span class="red">*</span></label>
                         <div class="col-sm-6">
-                            <form:input type="text" path="lastName" class="form-control" id="lastname" name="name" placeholder="Last name" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required=""/>
+                            <form:input type="text" path="lastName" class="form-control" id="lastname" name="name" placeholder="Last name" pattern="[a-zA-Z]{3,}" required="[a-zA-Z]{3,}"/>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                     </div>
@@ -89,14 +79,14 @@
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email <span class="red">*</span></label>
                         <div class="col-sm-6">
-                            <form:input type="email" path="email" class="form-control" id="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9@._ ]+" required=""/>
+                            <form:input type="email" path="email" class="form-control" id="email" name="email" placeholder="Email" pattern="[a-z0-9._]{2,50}@[a-z0-9._]{2,50}.[a-z]{2,10}" required="[a-z0-9._]{2,50}@[a-z0-9]{2,50}.[a-z]{2,10}"/>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="phone" class="col-sm-2 control-label">Phone number <span class="red">*</span></label>
                         <div class="col-sm-6">
-                            <form:input type="tel" path="phone" class="form-control" id="phone" name="phone" placeholder="Phone number Format (XXX) XXX-XX-XX" pattern="\(\d{3}\) \d{3}-\d{2}-\d{2}" required=""/>
+                            <form:input type="tel" path="phone" class="form-control" id="phone" name="phone" placeholder="Phone number Format (XXX) XXX-XX-XX" pattern="\(\d{3}\)\s+\d{3}-\d{2}-\d{2}" required="\(\d{3}\)\s+\d{3}-\d{2}-\d{2}"/>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
                     </div>
@@ -121,5 +111,4 @@
             });
         });
     </script>
-
 </t:template>
