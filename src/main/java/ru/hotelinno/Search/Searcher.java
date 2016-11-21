@@ -13,7 +13,7 @@ public class Searcher {
     private ConnectionPool pool = new ConnectionPool();
     public Searcher(){
         pool = new ConnectionPool();
-        pool.initConnectionPool("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/hotelinno", "hoteluser", "123123");
+        pool.initConnectionPool("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/hotelinno", "hoteluserzzg", "123123");
         this.con= pool.getConnection();
     }
 
