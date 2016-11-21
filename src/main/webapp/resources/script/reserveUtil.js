@@ -1,7 +1,7 @@
 function _ReserveUtil(){
-    this.reserveRoom = function(hotelroomid) {
+    this.reserveRoom = function(hrID) {
         if (confirm("Are you sure?")) {
-            window.location = "/reserveRoom/" + hotelroomid;
+            window.location = "/reserveRoom/" + hrID;
         }
     }
 }

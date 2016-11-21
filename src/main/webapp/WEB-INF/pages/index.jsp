@@ -6,10 +6,20 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu"> <span class="sr-only">Открыть навигацию</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu">
+                    <span class="sr-only">Открыть навигацию</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
+            </div>
             <div class="collaplse navbar-collapse" id="respisive-menu">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Login<b class="caret"></b></a>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Login<b class="caret"></b>
+                    </a>
                         <ul class="dropdown-menu">
                             <li><a href="sign-in-page.jsp"><i class="fa fa-user" aria-hidden="true"></i>Sign in</a></li>
                             <li class="divider"></li>

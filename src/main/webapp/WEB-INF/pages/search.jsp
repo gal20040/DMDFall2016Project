@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
+                <a class="navbar-brand" href="/"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
             </div>
             <div class="collaplse navbar-collapse" id="respisive-menu">
                 <ul class="nav navbar-nav">
@@ -44,8 +44,8 @@
                     <span class="red">*</span>
                 </form:label>
                 <div class="col-sm-6">
-                    <form:select path="roomType" class="selectpicker form-control">
-                        <option>Not chosen</option>
+                    <form:select path="roomType" class="selectpicker form-control" required="">
+                        <%--<option>Not chosen</option>--%>
                         <option>Econom</option>
                         <option>Comfort</option>
                         <option>Business</option>
@@ -79,7 +79,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-6">
                     <button type="submit" id="submit" class="btn btn-primary">
-                        Reserve
+                        Search
                     </button>
                 </div>
             </div>

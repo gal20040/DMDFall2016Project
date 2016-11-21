@@ -6,10 +6,18 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu"> <span class="sr-only">Открыть навигацию</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu">
+                    <span class="sr-only">Открыть навигацию</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
+            </div>
             <div class="collaplse navbar-collapse" id="respisive-menu">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+                    <li><a href="search"><i class="fa fa-arrow-left" aria-hidden="true"></i>Search again</a>
                     <li>
                 </ul>
             </div>
@@ -18,77 +26,90 @@
     <br>
     <br>
     <div class="container content">
-        <%--<c:if test="${!empty wishfulRoomData}">--%>
-            <%--${wishfulRoomData.checkInDate}--%>
-        <%--</c:if>--%>
+        <c:if test="${!empty choosenHotelRoom}">
+            <%--${result.hotelName}--%>
+            <%--${result.address}--%>
+            <%--${result.roomType}--%>
 
-        <form class="form-horizontal" method="post" id="form">
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Check-in date<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <p class="form-control-static">11/13/2016</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Check-out date<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <p class="form-control-static">11/15/2016</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">City<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <p class="form-control-static">Kazan</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Hotel name<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <p class="form-control-static">Hayat</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Room type<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <p class="form-control-static">Business</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">All information bellow is correct<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <input type="checkbox" data-switch-always required> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Name<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required>Anton<span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-            <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Last Name<span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" id="lastname" name="name" placeholder="Last" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required>Zalaldinov<span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
-            </div>
-
-            <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">Email <span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>email@gmail.com
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            <form class="form-horizontal" method="post" id="form">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Check-in date<span class="red">*</span></label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">${choosenHotelRoom.checkInDate}</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="phone" class="col-sm-2 control-label">Phone number <span class="red">*</span></label>
-                <div class="col-sm-6">
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone number Format (XXX) XXX-XX-XX" pattern="\(\d{3}\) \d{3}-\d{2}-\d{2}" required>
-                    +7(906)123-45-67
-                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Check-out date<span class="red">*</span></label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">${choosenHotelRoom.checkOutDate}</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-6">
-                    <button type="submit" id="submit" class="btn btn-primary">Reserve</button>
-                    <div></div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">City<span class="red">*</span></label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">${choosenHotelRoom.cityName}</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
                 </div>
-            </div>
-        </form>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Hotel name<span class="red">*</span></label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">${choosenHotelRoom.hotelName}</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Room type<span class="red">*</span></label>
+                    <div class="col-sm-6">
+                        <p class="form-control-static">${choosenHotelRoom.roomType}</p> <span class="glyphicon form-control-feedback" aria-hidden="true"></span> </div>
+                </div>
+
+                <form:form class="form-horizontal" method="post" id="form" action="reservation" commandName="userdata">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">
+                            All information bellow is correct
+                            <span class="red">*</span>
+                        </label>
+                        <div class="col-sm-6">
+                            <input type="checkbox" data-switch-always required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">First name<span class="red">*</span></label>
+                        <div class="col-sm-6">
+                            <form:input type="text" path="firstName" class="form-control" id="name" name="name" placeholder="First name" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required=""/>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Last Name<span class="red">*</span></label>
+                        <div class="col-sm-6">
+                            <form:input type="text" path="lastName" class="form-control" id="lastname" name="name" placeholder="Last name" pattern="[a-zA-Zа-яА-ЯёЁ ]+" required=""/>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email <span class="red">*</span></label>
+                        <div class="col-sm-6">
+                            <form:input type="email" path="email" class="form-control" id="email" name="email" placeholder="Email" pattern="[a-zA-Z0-9@._ ]+" required=""/>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="col-sm-2 control-label">Phone number <span class="red">*</span></label>
+                        <div class="col-sm-6">
+                            <form:input type="tel" path="phone" class="form-control" id="phone" name="phone" placeholder="Phone number Format (XXX) XXX-XX-XX" pattern="\(\d{3}\) \d{3}-\d{2}-\d{2}" required=""/>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-6">
+                            <button type="submit" id="submit" class="btn btn-primary">Reserve room</button>
+                            <div></div>
+                        </div>
+                    </div>
+                </form:form>
+            </form>
+        </c:if>
     </div>
     <script>
         $(function () {

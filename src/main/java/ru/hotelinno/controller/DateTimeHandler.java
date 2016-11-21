@@ -3,16 +3,17 @@ package ru.hotelinno.controller;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 class DateTimeHandler {
     private SimpleDateFormat format;
-    private final String defaultFormat = "yyyyMMdd130000";
     private final int rate = 1000; //1000 milliseconds in 1 second
 
     /**
      * Construct instance with default date-time format.
      */
     DateTimeHandler() {
+        final String defaultFormat = "yyyyMMdd130000";
         format = new SimpleDateFormat(defaultFormat);
     }
 
@@ -21,6 +22,13 @@ class DateTimeHandler {
      */
     DateTimeHandler(String dateFormat) {
         format = new SimpleDateFormat(dateFormat);
+    }
+
+    /**
+     * Construct instance with assigned date-time format and certain locale.
+     */
+    DateTimeHandler(String dateFormat, Locale locale) {
+        format = new SimpleDateFormat(dateFormat, locale);
     }
 
     String getFormattedDate(long timeStampInMinutes) {

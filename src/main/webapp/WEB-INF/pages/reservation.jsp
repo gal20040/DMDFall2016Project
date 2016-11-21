@@ -5,10 +5,18 @@
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu"> <span class="sr-only">Открыть навигацию</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="index.html"><i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a> </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#respisive-menu">
+                    <span class="sr-only">Открыть навигацию</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <i class="fa fa-home fa-fw" aria-hidden="true"></i>Home</a>
+            </div>
             <div class="collaplse navbar-collapse" id="respisive-menu">
                 <ul class="nav navbar-nav">
-                    <li><a href="search"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a>
+                    <li><a href="search"><i class="fa fa-arrow-left" aria-hidden="true"></i>Search again</a>
                     <li>
                 </ul>
             </div>
@@ -31,35 +39,61 @@
         </tr>
         </thead>
         <tbody>
-            <c:if test="${!empty dbResponse}">
+        <c:if test="${!empty dbResponse}">
             <c:forEach items="${dbResponse}" var="result">
-            <%--<form:form class="form-horizontal" method="post" id="form" action="reserver" commandName="result">--%>
-            <%--<form:input disabled="true" type="text" path="hrID"/>${result.hrID}--%>
-            <%--<form:input disabled="true" type="text" path="hotelID"/>${result.hotelID}--%>
-            <%--<form:input disabled="true" type="text" path="roomID"/>${result.roomID}--%>
-            <%--<form:input disabled="true" type="text" path="price"/>${result.price}--%>
-            <%--<button type="submit" id="submit" class="btn btn-primary">--%>
-            <%--Reserve--%>
-            <%--</button>--%>
-            <%--</form:form>--%>
-        <tr>
-                <%--<td>${result.hrID}</td>--%>
-                <%--<td>${result.hotelID}</td>--%>
-            <td>${result.hotelName}</td>
-            <td>${result.address}</td>
-                <%--<td>${result.roomID}</td>--%>
-            <td>${result.roomType}</td>
-            <td>${result.price}</td>
-            <td>
-                    <%--<a href="javascript:BookUtil.deleteBook(${result.hotelID})">Reserve1 </a>--%>
+                <%--<div class="container content">--%>
+                    <%--<form class="form-horizontal" method="post" id="form" action="userdetails" commandName="result">--%>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="col-sm-6">--%>
+                                <%--<form:input disabled="true" type="text" path="hotelname" class="form-control" id="name" name="name"/>${result.hotelName}--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="col-sm-6">--%>
+                                <%--<form:input disabled="true" type="text" path="address" class="form-control" id="name" name="name"/>${result.address}--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="col-sm-6">--%>
+                                <%--<form:input disabled="true" type="text" path="roomtype" class="form-control" id="name" name="name"/>${result.roomType}--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="col-sm-6">--%>
+                                <%--<form:input disabled="true" type="text" path="price" class="form-control" id="name" name="name"/>${result.price}--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                        <%--&lt;%&ndash;<input disabled="true" type="text" path="hotelname"/>${result.hotelName}&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<input disabled="true" type="text" path="address"/>${result.address}&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<input disabled="true" type="text" path="roomType"/>${result.roomType}&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<input disabled="true" type="text" path="price"/>${result.price}&ndash;%&gt;--%>
+                        <%--<div class="form-group">--%>
+                            <%--<div class="col-sm-offset-2 col-sm-6">--%>
+                                <%--<button type="submit" id="submit" class="btn btn-primary">--%>
+                                    <%--Reserve--%>
+                                <%--</button>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</form>--%>
+                <%--</div>--%>
+                <tr>
+                        <%--<td>${result.hrID}</td>--%>
+                        <%--<td>${result.hotelID}</td>--%>
+                    <td>${result.hotelName}</td>
+                    <td>${result.address}</td>
+                        <%--<td>${result.roomID}</td>--%>
+                    <td>${result.roomType}</td>
+                    <td>${result.price}</td>
+                    <td>
+                            <%--<a href="javascript:BookUtil.deleteBook(${result.hotelID})">Reserve1 </a>--%>
 
-                <a href="javascript:reserveUtil.reserveRoom(${result.hotelName})">Reserve room</a>
-                    <%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Choose this room </button>--%>
-            </td>
-            <!-- Modal -->
-        </tr>
+                        <a href="javascript:reserveUtil.reserveRoom(${result.hrID})">Reserve room</a>
+                            <%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> Choose this room </button>--%>
+                    </td>
+                    <!-- Modal -->
+                </tr>
             </c:forEach>
-            </c:if>
+        </c:if>
         </tbody>
     </table>
     <!-- Button trigger modal -->
